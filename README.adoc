@@ -1,0 +1,30 @@
+= simple-dosbox-launcher
+
+It launches an executable in an archive file with dosbox.
+
+== Build
+
+----
+jpm build
+jpm install
+----
+
+== Build-time dependencies
+
+* https://github.com/andrewchambers/janet-sh[sh]
+* https://github.com/janet-lang/argparse[argparse]
+
+== Run-time dependencies
+
+* fusermount from https://github.com/libfuse/libfuse[fuse]
+* rm and mkdir from https://www.gnu.org/software/coreutils/[coreutils]
+* https://www.nongnu.org/atool/[atool]
+* unionfs from https://github.com/rpodgorny/unionfs-fuse[unionfs-fuse]
+* https://www.dosbox.com/[dosbox]
+* Anything that creates `$XDG_RUNTIME_DIR` in environment
+** elogind or systemd
+** Your own login scripts
+** https://jjacky.com/pam_rundir/[pam_rundir]
+** https://github.com/ifreund/rundird[rundird]
+** ...
+* `$HOME`
