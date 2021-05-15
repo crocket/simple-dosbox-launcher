@@ -93,7 +93,7 @@
           (when verbose
             (print-info opts inst-conf lower upper merged))
           (loop [dir :in [lower upper merged]]
-            (when (not (os/stat dir))
+            (unless (os/stat dir)
               (sh/$ mkdir -p ,dir)))
           (defer (cleanup verbose merged runtime-dir)
             (launch-dosbox opts inst-conf lower upper merged)))
